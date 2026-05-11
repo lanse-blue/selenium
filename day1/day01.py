@@ -1,7 +1,8 @@
-from selenium import webdriver#导入
+from selenium import webdriver  # 导入
 from time import *
-my_driver = webdriver.Firefox()#创建对象
-my_driver.get('file:///C:/Users/Administrator/Desktop/example.html')#使用get方法打开网站
+
+my_driver = webdriver.Firefox()  # 创建对象
+my_driver.get('file:///C:/Users/Administrator/Desktop/example.html')  # 使用get方法打开网站
 # print(my_driver.current_url)#获取网址
 # print(my_driver.page_source)#获取源代码
 # print(my_driver.title)#获取标题
@@ -61,4 +62,4 @@ print(emts)
 # for i in emts:
 #     print(f'第{n}个超链接的文本内容是{i.text}')
 #     n+=1
-my_driver.quit()#关闭浏览器
+my_driver.quit()  # 关闭浏览器
