@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>非select标签的下拉框</title>
+    <style type="text/css">
+        div {text-align: center; font-size: 25px; text-shadow: -9px 3px 2px blue;}
+		body {text-align:center;font-size: 25px;background-image: url(./风景.jpg)}
+        #gridComboBox {
+            background: #fff;
+            border: 1px solid #2d78f4;
+            border-radius: 2px;
+            -moz-box-shadow: inset 0 0 4px #06c;
+            -webkit-box-shadow: inset 0 0 4px #06c;
+            box-shadow: inset 0 0 4px #06c;
+        }
+		#second_outer{font-size:25px}
+		select{height:20px;width:408px}
+    </style>
+    <script type="text/javascript">
+        function delGridComboBox() { // 删除弹出框
+            var divContainer = document.getElementById('gridComboBox');
+            if (divContainer) {
+                divContainer.parentNode.removeChild(divContainer);
+            }
+        }
+        function doClick(sender, str) {//str='ddd(红色/蓝色/紫色/黑色/黄色/深蓝色/橙色/红梅色/茶色/青竹色/青白橡////)' 只取()得内容/分割做为数据源
+            delGridComboBox();
+            var re = /[^\)\(]*/g //取出()中的内容作为下拉数据源
+            var fit = str.match(re);
+            var fmt = fit[2].split('/');
+
+            var divContainer = document.createElement('div');
+            divContainer.style.width = sender.clientWidth + 2 + "px";
+            divContainer.style.overflow = "hidden";
+            divContainer.style.position = 'absolute';
+            divContainer.style.top = sender.offsetTop + sender.offsetHeight + 'px';
+            divContainer.style.left = sender.offsetLeft + 'px';
+            divContainer.style.zIndex = 999;
+            divContainer.id = "gridComboBox";
+
+            for (var i = 0; i < fmt.length; i++) {
+                console.log('fmt[i]>>', fmt[i]);
+                var txt = document.createElement('div');
+                txt.innerHTML = fmt[i];
+                txt.title = txt.innerHTML;
+                txt.style.margin = 3 + 'px';
+                txt.addEventListener('mouseover', function changeBg(event) {
+                    event.target.style.fontWeight = 'bold';
+                    event.target.style.color = 'white';
+                    event.target.style.backgroundColor = '#2d78f4';
+                }, false);
+                txt.addEventListener('mouseout', function unChangeBg(event) {
+                    event.target.style.fontWeight = 'normal';
+                    event.target.style.color = 'black';
+                    event.target.style.backgroundColor = 'white';
+                }, false);
+                txt.onclick = function (subSender) {
+                    sender.value = subSender.target.innerText;
+                    delGridComboBox();
+                };
+                divContainer.appendChild(txt);
+            };
+            document.body.appendChild(divContainer);
+        };
+    </script>
+</head>
+<body>
+<div>请选择一种你喜欢的颜色：<sub>非select标签下拉框选择</sub>
+    <div id="options">
+    <input onclick="doClick(this,'ddd(红色/蓝色/紫色/黑色/黄色/深蓝色/橙色/红梅色/茶色/青竹色/青白橡)')"style='width: 290px;'/>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p style="color:red">***************************************select标签下拉框选择***************************************</p>
+<div id="second_outer" name="select">
+<div id="second_inner" style="color:red">请选择一首诗：</div>
+	<select id="poem">
+		<option style="font-size:25px">-请选择-</option>
+		<option id="opt1" value="first" style="font-size:25px">红豆生南国，春来发几枝。</option>
+		<option id="opt2" value="second" style="font-size:25px">愿君多采撷，此物最相思。</option>
+		<option id="opt3" value="third" style="font-size:25px">千山鸟飞绝，万径人踪灭。</option>
+		<option id="opt4" value="fourth" style="font-size:25px">孤舟蓑笠翁，独钓寒江雪。</option>
+		<option id="opt5" value="fifth" style="font-size:25px">烟笼寒水月笼沙，夜泊秦淮近酒家。</option>
+		<option id="opt6" value="sixth" style="font-size:25px">商女不知亡国恨，隔江犹唱后庭花。</option>
+	</select>
+</div>
+</body>
+</html>

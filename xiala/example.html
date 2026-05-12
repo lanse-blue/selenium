@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML中有多个重复属性时查找元素</title>
+    <style>
+    form {text-align: center}
+    #title {text-align: center; font-size: 20px;font-weight:bold}
+    a {text-align: right; font-size: 13px}
+    input{
+                border: 1px solid #ccc;
+                padding: 7px 0px;
+                border-radius: 3px;
+                padding-left:5px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+                -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+            }
+            input:focus{
+                    border-color: #66afe9;
+                    outline: 0;
+                    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+                    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+            }
+    #pLabel,#sep {text-align: center; color: blue}
+    #hongloumeng {font-weight:bold}
+    #shiwu {font-size: 16px}
+    #tianshang {font-size: 16px}
+	div {text-align: center}
+	#sex {text-align: center}
+	select {width:150px}
+    </style>
+</head>
+<body bgcolor='lightgray'>
+<br>
+<br>
+<h1 align="center">
+      <a id="study" name="xue"  class="zhangmen" href="https://www.atstudy.com">请点击，进入学掌门</a>
+</h1>
+<form id="form">
+<span>
+		<a id="title6">早发白帝城
+		<br></a>
+		<a value="唐">唐•李白</a><br>
+		<a>朝辞白帝彩云间，</a>
+		<input type="text" id="IamID" name="first" class="poem" value="123"><span>。</span>
+</span>
+    <br>
+    <a>两岸猿声啼不住，</a>
+    <input type="text" id="IamID" name="second" class="poem" value=""><span>。</span>
+</form>
+</br>
+<marquee id="scroll" direction="right" behavior="scroll" scrollamount="10" scrolldelay="0" loop="-1" height="20" hspace="1" vspace="1" style="font-family: 华文彩云">**********************************************************分割线**********************************************************</marquee>
+<form>
+    <a id="hongloumeng">对月寓怀<br></a>
+    <a value="曹雪芹">曹雪芹</a><br>
+    <a id="shiwu1">时逢三五便团圆，</a>
+    <input type="text" id="ID" name="first" class="Dream of the Red Chamber" description="Dream of the Red Chamber 是红楼梦的英文翻译" value=""><span>。</span>
+    <br/>
+    <a id="shiwu1">这是一个文本框：</a>
+    <input type="text" id="una" name="ft" class="Dream of the Red Chamber" description="这个文本框控件不可用" value="1111" disabled>
+    <br>
+	<ul id="ul">
+	</ul>
+    <a id="tianshang">天上一轮才捧出，</a>
+    <input type="text" id="jiayucun" name="second" class="RedChamber" value=""><span>。</span>
+	<br/><br/>
+	<span id="tianshang">我是span标签</span><br/>
+    <lable id="lab" hidden >我是标签</lable><!--这是一个隐藏对象-->
+</form>
+<br/>
+<br/>
+<div>CSS定位元素之伪类： 
+    <select>
+        <option>============</option>
+        <option>********</option>
+        <option>《》《》《</option>
+        <option>&&&&&&&</option>
+		<option>###￥￥￥￥%%%</option>
+<option>@@@@@@@@@</option>
+    </select>
+</div>
+<br />
+<p id="sep">******************************************************华丽丽的分割线******************************************************</p>
+<div>
+	<form action="" id="fruit"> 
+	您喜欢的水果？ 
+	<label><input id="apple" name="Fruit" type="checkbox" value="" checked/>苹果 </label> 
+	<label><input id="peach" name="Fruit" type="checkbox" value="" />桃子 </label> 
+	<label><input id="banana" name="Fruit" type="checkbox" value="" />香蕉 </label> 
+	<label><input id="pear" name="Fruit" type="checkbox" value="" />梨 </label> 
+	<label><input id="ID" name="Fruit" type="checkbox" value="" /> 橘子 </label> 
+	</form> 
+</div>	
+<br />
+<div>
+	<form id="sex" action="select">
+	请选择您的性别： 
+	<label>
+	<input name="sex" type="radio" value="0" checked=True>
+		<span>男</span>
+	</label>
+	<label>
+		<input name="sex" type="radio" value="1" >
+		<span>女</span>
+	</label>
+	</form>
+</div>
+<script>
+        function start1() {            
+            document.getElementById("sep").style.color = "red";
+			document.getElementById("scroll").style.color = "red";
+            setTimeout("start2()", 1000);
+        }
+        function start2() {
+            document.getElementById("sep").style.color = "orange";
+			document.getElementById("scroll").style.color = "blue";
+            setTimeout("start3()", 1000);
+        }
+        function start3() {
+            document.getElementById("sep").style.color = "pink";
+			document.getElementById("scroll").style.color = "black";
+			
+            setTimeout("start4()", 1000); 
+        }
+		
+		function start4() {
+            document.getElementById("sep").style.color = "green";
+			document.getElementById("scroll").style.color = "palevioletred";
+            setTimeout("start5()", 1000); 
+        }
+        function start5() {
+            document.getElementById("sep").style.color = "black";
+			document.getElementById("scroll").style.color = "gray";
+            setTimeout("start1()", 1000);
+        }
+        start1();  // 调用start1函数。
+</script>
+</body>
+</html>
