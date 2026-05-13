@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input标签文件上传</title>
+    <style>
+		body {text-align: center}
+		#upload {opacity:0; width:160px; position: absolute; left: 0}
+		a {position: relative;display: inline-block; text-align: center;color: #fff; text-decoration: none;
+			width: 160px; height: 28px;line-height: 28px; background-color: #cccccc; border-radius: 6px}
+    	div,img {text-align: center ;color:black; font-size:16px}
+		#pLabel {color:blue;}
+    </style>
+	<script>
+		function CheckWorkFile()
+		{
+			var obj=document.getElementById('fuMain');
+			if(obj.value=='')
+			{
+				alert('请选择要上传的文件');
+				return false;
+			}
+			var stuff=obj.value.match(/^(.*)(\.)(.{1,8})$/)[3];
+			if(stuff!='doc')
+			{
+				alert('文件类型不正确，请选择.doc文件');
+				return false;
+			}
+			return true;
+		}
+	</script>
+	
+</head>
+    <body>
+	<div>非input标签的文件上传
+		<p><a name="file_upload">上传文件<input id="upload" type="file"/></a></p>
+	</div>
+	<p>**********************************************************分割线**********************************************************</p>
+    <div>
+        <form id="file_logo" action="fileUpload.php" method="post" enctype="multipart/form-data" >
+		<span>请选择一个文件进行上传！</span><br/>
+            <label for="file">文件:</label>
+			<input type="file" ID="fuMain" />
+			<input type="button" ID="btnUpload" onclick="return CheckWorkFile()" Text="上传" value="提交"/>
+
+</body>
+</html>
