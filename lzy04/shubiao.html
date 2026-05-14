@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="author" content="zhanglei-51testing">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标拖动操作演示</title>
+    <style>
+        #targetEle {
+            width: 300px;
+            height: 300px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+<div id="targetEle"
+     style="position: absolute; width:220px; height:100px; background-color: yellow;cursor: pointer;">快到碗里来！</div>
+</body>
+<div id="blackSquare"
+     style="position: absolute; width:120px; height:50px; background-color: red;cursor: pointer;">你才到碗里去！</div>
+<script>
+    window.onload = () => {
+        //获取拖拽实验对象
+        let el = document.getElementById("blackSquare");
+        //在该对象上绑定鼠标点击事件
+        el.onmousedown = (e) => {
+            //鼠标按下，计算鼠标触点距离元素左侧和顶部的距离
+            let disX = e.clientX - el.offsetLeft;
+            let disY = e.clientY - el.offsetTop;
+            document.onmousemove = function (e) {
+                //计算需要移动的距离
+                let tX = e.clientX - disX;
+                let tY = e.clientY - disY;
+                //移动当前元素
+                if (tX >= 0 && tX <= window.innerWidth - el.offsetWidth) {
+                    el.style.left = tX + 'px';
+                }
+                if (tY >= 0 && tY <= window.innerHeight - el.offsetHeight) {
+                    el.style.top = tY + 'px';
+                }
+            };
+            //鼠标松开时，注销鼠标事件，停止元素拖拽。
+            document.onmouseup = function (e) {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            };
+        }
+    }
+</script>
+</html>

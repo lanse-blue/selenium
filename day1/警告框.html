@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="author" content="zhanglei-51testing">
+    <title>警告框处理</title>
+    <script type="text/javascript">
+        function jinggao(){
+            alert("这个窗口是警告框！警告框只有一个“确定”按钮！");
+            print("你点击了警告框中的“确定”按钮。");
+        }
+
+        function queren(){
+            var con = confirm("这个窗口是确认框！确认框有“确定”和“取消”按钮！");
+            if (con == true){
+                print("你点击了确认框中的“确定”按钮。");
+                }
+            else {
+                print("你点击了确认框中的“取消”按钮。");
+            }
+        }
+
+        function tishi(){
+            var input_text = prompt("这个窗口是提示消息框！提示消息框与确认框类似，不同之处在于它们还可以输入文本。","提示消息框")
+            if (input_text !=null){
+                print("你点击了提示消息框中的“确定”按钮并输入了：" + input_text);
+                }
+            else {
+                print("你点击了提示消息框中的“取消”按钮。");
+            }
+        }
+
+        function print(text){
+            var dom = document.createElement('div')
+            dom.innerText = text
+            document.getElementsByTagName('body')[0].appendChild(dom)
+        }
+    </script>
+	<style>
+		body{text-align:center}
+		#text{font-family:华文楷体; font-size:40px; text-shadow:  -9px 10px 3px #333333;}
+		input{height:30px;width:150px}
+		input:focus{
+                    border-color: #66afe9;
+                    outline: 0;
+                    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+                    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+            }
+	</style>
+</head>
+<body>
+	<p id="text">JavaScript alerts, prompts and confirmations</p>
+    <input id="button1" style="font-weight:bold" type="button" onclick="jinggao()" value="警告框alert"/>
+    <br>
+    <br>
+	<br>
+    <input id="button2" style="font-weight:bold" type="button" onclick="queren()" value="确认框confirm"/>
+    <br>
+    <br>
+	<br>
+    <input id="button3" style="font-weight:bold" type="button" onclick="tishi()" value="提示消息框prompt"/>
+</body>
+</html>

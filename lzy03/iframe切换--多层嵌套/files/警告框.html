@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="author" content="zhanglei-51testing">
+    <title>警告框处理</title>
+    <script type="text/javascript">
+        function duihua(){
+            alert("这个窗口是对话框！");
+            print("你点击了确认");
+        }
+
+        function queren(){
+            var con = confirm("确认框！");
+            if (con == true){
+                print("你点击了确认1");
+                }
+            else {
+                print("你点击了取消1");
+            }
+        }
+
+        function tishi(){
+            var se = prompt("请输入您的反馈意见","测试")
+            if (se !=null){
+                print("你点击了确认2并输入了：" + se);
+                }
+            else {
+                print("你点击了取消2");
+            }
+        }
+
+        function print(text){
+            var dom = document.createElement('div')
+            dom.innerText = text
+            document.getElementsByTagName('body')[0].appendChild(dom)
+        }
+    </script>
+</head>
+<body>
+    <input id="button1" type="button" onclick="duihua()" value="点击显示对话框"/>
+    <br>
+    <br>
+    <input id="button2" type="button" onclick="queren()" value="点击显示确认框"/>
+    <br>
+    <br>
+    <input id="button3" type="button" onclick="tishi()" value="点击显示提示框"/>
+		<iframe id="thirdIframe" name="third" src="./超链接.html" width="900" height="242" style="position:absolute;right:0px;top:0px" frameborder=0>
+	</iframe>
+</body>
+</html>

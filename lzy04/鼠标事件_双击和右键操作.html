@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+	<meta name="author" content="zhanglei-51testing">
+    <title></title>
+    <style>
+        body {text-align: center; font-size:20px}
+		p {text-shadow: 5px 5px 2px red,
+                        20px 30px 2px green,
+                        40px 60px 2px pink}
+		 .guo {text-shadow: -8px 6px 2px #333333;
+            font-size: 20px}
+    </style>
+    <script>
+        function change() {
+            // 获取id属性为 aaa 的元素，并赋值给一个变量
+            var x = document.getElementById("aaa");
+            x.innerHTML = "你收入的12.5%来自于你的知识！";  // 修改该元素的文本内容
+            x.style.color = "red";  // 改变元素的样式属性 --颜色
+            x.style.fontSize = "20px";  // 改变元素的样式属性 --字体大小
+            x.style.fontFamily = "华文行楷";  // 改变元素的样式属性 --字体
+        }
+    </script>
+</head>
+<body>
+    <p id="aaa">原谅我放荡不羁爱自由！</p></br></br>
+    <input type="button" ondblclick="change()" value="双击改变内容" style="color:#F7575d; font-size:30px; font-family:华文行楷"></br></br></br></br>
+<!-- 双击鼠标事件触发函数 -->
+<div class="guo"><b>过</b><sub>  王嘉尔/林俊杰</sub></div>
+<audio src=".\files\过-林俊杰-王嘉尔.mp3" autoplay="autoplay" controls="controls"></audio></br></br></br></br>
+    <input style="color:#F7575d; font-size:30px; font-family:华文行楷" class="right" type="button" value="在此区域点击右键">
+    <script>
+        window.onload = function(){
+            var right = document.querySelector('.right');
+            //去掉默认的contextmenu事件，否则会和右键事件同时出现。
+            right.oncontextmenu = function(e){
+                e.preventDefault();
+            };
+            right.onmousedown = function(e){
+                if(e.button ==2){
+                    alert("你点击了鼠标右键。");
+                }else if(e.button ==0){
+                    alert("你点击了鼠标左键。");
+                }
+            }
+        }
+    </script>
+	    <style type="text/css">
+        body {text-align: center;
+            background-image: url(./files/JJ_Lin.jpeg);}
+    </style>
+</body>
+</html>
